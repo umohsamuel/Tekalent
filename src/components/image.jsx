@@ -11,6 +11,8 @@ import glassmorphism1 from "../assets/images/glassmorphism1.svg";
 import glassmorphism2 from "../assets/images/glassmorphism2.svg";
 import bitmojict from "../assets/images/bitmojict.svg";
 import fivestars from "../assets/images/5stars.svg";
+import grid7thpageiguess from "../assets/images/grid7thpageiguess.svg";
+import bitmojiguy2 from "../assets/images/bitmojiguy2.svg";
 
 export default {
   grid,
@@ -26,4 +28,6 @@ export default {
   glassmorphism2,
   bitmojict,
   fivestars,
+  grid7thpageiguess,
+  bitmojiguy2,
 };
