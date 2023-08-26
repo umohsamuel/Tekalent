@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <div className="w-full flex justify-center items-center">
-      <nav className=" fixed z-[99999] flex justify-between items-center w-[90%] top-[3.5%] h-24 border rounded-xl px-9 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 bg-clip-padding backdrop-blur-sm">
+      <nav className=" fixed flex justify-between items-center w-[90%] top-[3.5%] h-20 border rounded-xl px-9 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 opacity-50 ">
         <div className="flex gap-4 items-center">
           <svg
             width="43"

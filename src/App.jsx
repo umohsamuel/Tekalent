@@ -6,11 +6,7 @@ function App() {
   return (
     <>
       {/* first page  */}
-      <div className=" w-full h-[100vh] relative text-white">
-        {/* background image  */}
-        <div className="pg1 w-full h-full z-[1]">
-          <img src={image.gridpng2} alt="" />
-        </div>
+      <div className="firstpagebg w-full h-[100vh] relative text-white">
         {/* navbar  */}
         <Navbar />
         {/* text content of first page  */}

@@ -30,3 +30,10 @@
   object-fit: cover;
   opacity: 75%;
 }
+
+.firstpagebg {
+  background: url("./assets/images/gridbluredbg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
