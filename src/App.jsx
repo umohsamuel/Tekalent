@@ -404,7 +404,7 @@ function App() {
           
 
           {/* sixth page  */}
-          <div className="w-full my-10 flex flex-col items-center mt-32 gap-[17rem] min-h-[150vh] lg:min-h-[120vh]">
+          <div className="w-full my-10 flex flex-col items-center mt-32 gap-[17rem] min-h-[150vh] ">
             <h1 className=" w-60 font-bold text-4xl text-center">
               Customer testimonial
             </h1>
