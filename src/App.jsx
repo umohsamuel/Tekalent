@@ -1,5 +1,7 @@
 import "./App.css";
 import image from "./components/image";
+import { useInView } from 'react-intersection-observer';
+import React, { useRef, useEffect } from 'react';
 import Navbar from "./components/navbar";
 import { Tilt } from "react-tilt";
 
@@ -16,6 +18,80 @@ function App() {
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
 
+
+  const { ref: ref1, inView: ref1visible } = useInView();
+  const { ref: ref2, inView: ref2visible } = useInView();
+  const { ref: ref3, inView: ref3visible } = useInView();
+  const { ref: ref4, inView: ref4visible } = useInView();
+  const { ref: ref5, inView: ref5visible } = useInView();
+  const { ref: ref6, inView: ref6visible } = useInView();
+
+
+
+  const tiltRef = useRef(null);
+  const tilt2Ref = useRef(null);
+
+
+  useEffect(() => {
+    const tiltDiv = tiltRef.current;
+    const tilt2Div = tilt2Ref.current;
+
+
+    const handleMouseMove = (event) => {
+      const rect = tiltDiv.getBoundingClientRect();
+      const rect2 = tilt2Div.getBoundingClientRect();
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const centerX2 = rect2.left + rect.width / 2;
+      const centerY2 = rect2.top + rect.height / 2;
+
+      const angleX = (event.clientY - centerY) * 0.008; // Adjust sensitivity
+      const angleY = (event.clientX - centerX) * -0.02; // Adjust sensitivity
+
+      const angleX2 = (event.clientY - centerY) * 0.0009; // Adjust sensitivity
+      const angleY2 = (event.clientX - centerX) * -0.018; // Adjust sensitivity
+
+
+      tiltDiv.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+      tilt2Div.style.transform = `rotateX(${angleX2}deg) rotateY(${angleY2}deg)`;
+
+    };
+
+    const handleMouseLeave = () => {
+      tiltDiv.style.transform = 'rotateX(0) rotateY(0)';
+      tilt2Div.style.transform = 'rotateX(0) rotateY(0)';
+
+    };
+
+    tiltDiv.addEventListener('mousemove', handleMouseMove);
+    tiltDiv.addEventListener('mouseleave', handleMouseLeave);
+
+
+
+    tilt2Div.addEventListener('mousemove', handleMouseMove);
+    tilt2Div.addEventListener('mouseleave', handleMouseLeave);
+
+
+
+
+
+    return () => {
+      tiltDiv.removeEventListener('mousemove', handleMouseMove);
+      tiltDiv.removeEventListener('mouseleave', handleMouseLeave);
+
+
+      tilt2Div.removeEventListener('mousemove', handleMouseMove);
+      tilt2Div.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+
+
+
+
+
   return (
     <>
       {/* first page  */}
@@ -23,7 +99,7 @@ function App() {
         {/* navbar  */}
         <Navbar />
         {/* text content of first page  */}
-        <div className="w-full h-full flex flex-col justify-center items-center text-center gap-9">
+        <div className="w-full pt-32 flex flex-col justify-center items-center text-center gap-9">
           <h1 className="font-bold text-6xl w-[48.625rem]">
             Hire world-class engineers for a fraction of the price
           </h1>
@@ -49,7 +125,7 @@ function App() {
         </div>
 
         {/* images div  */}
-        <div className="  flex justify-center items-center -mt-24">
+        <div className="  flex justify-center items-center  slide_inD">
           <img
             src={image.wholepage1imgframe}
             alt=""
@@ -60,8 +136,8 @@ function App() {
 
       <div className="bg-white rounded-t-[99px]">
         {/* second page  */}
-        <div className="w-full h-[100vh] mt-96 text-black bg-white rounded-t-[99px] flex justify-center items-center ">
-          <div className=" w-[90%] h-[80%] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex justify-between">
+        <div ref={ref2} className="w-full h-[100vh] mt-96 text-black bg-white rounded-t-[99px] flex justify-center items-center ">
+          <div className= {`${ref2visible ? 'slide_in' : ''} " w-[90%] h-[80%] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex justify-between"`}>
             {/* left section  */}
             <div className="w-[50%] h-full flex flex-col items-center py-24">
               <div className="grid gap-9">
@@ -92,26 +168,26 @@ function App() {
               </div>
             </div>
             {/* right section  */}
-            <div className="w-[50%] h-full z-30 mt-24 flex justify-center">
+            <div className= {`${ref2visible ? 'tilt' : ''} w-[50%] h-full z-30 mt-24 flex justify-center`}>
               <img
                 src={image.finalpage2group}
                 alt=""
-                className="z-30 h-full shadow rounded-2xl"
+                className="z-30 h-full shadow rounded-2xl tilt"
               />
             </div>
           </div>
         </div>
 
         {/* third page  */}
-        <div className="w-full h-[100vh] bg-white">
-          <div className="w-full h-full mt-32 text-black bg-white  rounded-t-[99px] flex justify-center items-center">
+        <div ref={ref1} className="w-full h-[100vh] bg-white">
+          <div className= {`${ref1visible ? 'slide_in' : ''} "w-full h-full mt-32 text-black bg-white  rounded-t-[99px] flex justify-center items-center"`}>
             <div className=" w-[90%] h-[80%] bg-gradient-to-l from-white to-[#9597AA] border-l-2 rounded-3xl flex justify-between">
               {/* left section  */}
               <div className="w-[50%] h-full z-30 -mt-24 flex items-center justify-center">
                 <img
                   src={image.page3left}
                   alt=""
-                  className="z-30 h-full shadow rounded-2xl"
+                  className="z-30 h-full shadow rounded-2xl tilt2"
                 />
               </div>
               {/* right section  */}
@@ -155,7 +231,7 @@ function App() {
         </div>
 
         {/* fourth page  */}
-        <div className="w-full text-black bg-gradient-to-b from-white to-[#F8F8F8] rounded-t-[99px] flex justify-center items-center ">
+        <div ref={tiltRef} className="w-full text-black bg-gradient-to-b from-white to-[#F8F8F8] rounded-t-[99px] flex justify-center items-center tilt_div ">
           <div className=" w-[90%] py-[4.75rem] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex flex-col justify-between">
             {/* top fourth page  */}
             <div className="flex justify-center items-center gap-7 px-[2%] ">
@@ -249,14 +325,14 @@ function App() {
 
         {/* fifth page  */}
         <div className=" bg-[#F8F8F8] w-full flex flex-col items-center">
-          <div className="rounded-t-[99px] rounded-b-[99px] bg-white ">
+          <div className= "rounded-t-[99px] rounded-b-[99px] bg-white ">
             {/* first one for this guy  */}
             <div className="flex justify-center items-center h-full w-full gap-7 px-[2%] ">
               {/* left section  */}
-              <div className="w-[42.063rem] h-[33rem] block p-12 rounded-3xl bg-transparent">
+              <div  ref={ref3} className="w-[42.063rem] h-[33rem] block p-12 rounded-3xl bg-transparent">
                 <div className="flex flex-col gap-9 justify-center w-full h-full">
-                  <h1 className="  font-bold text-[3.25rem]">Pricing</h1>
-                  <p className=" font-medium text-2xl w-[34rem]">
+                  <h1 className={`${ref3visible ? 'slide_in' : ''} font-bold text-[3.25rem]`} >Pricing</h1>
+                  <p className= {`${ref3visible ? 'slide_in' : ''} font-medium text-2xl w-[34rem] slide_in"`}>
                     We have engineers at a variety of price points, dependent on
                     their level of experience. Our most experienced engineers
                     work out to less than £2,000 a month.
@@ -287,8 +363,8 @@ function App() {
               {/* left section  */}
               <div className="w-[42.063rem] h-[33rem] block p-12 rounded-3xl bg-transparent">
                 <div className="flex flex-col gap-9 justify-center w-full h-full">
-                  <h1 className="  font-bold text-[3.25rem]">UK based hire</h1>
-                  <p className=" font-medium text-2xl w-[21rem]">
+                  <h1 ref={ref4} className= {`${ref4visible ? 'slide_right' : ''}  font-bold text-[3.25rem]`}>UK based hire</h1>
+                  <p  className={`${ref4visible ? 'slide_in' : ''} font-medium text-2xl w-[21rem]`}>
                     Lots of time, money and extra fees involved.
                   </p>
                   <button className=" w-48 h-14 bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
@@ -325,8 +401,10 @@ function App() {
             <div className="h-20"></div>
           </div>
 
+          
+
           {/* sixth page  */}
-          <div className="w-full flex flex-col items-center mt-4 gap-[17rem] min-h-[150vh]">
+          <div className="w-full my-10 flex flex-col items-center mt-32 gap-[17rem] min-h-[150vh] ">
             <h1 className=" w-60 font-bold text-4xl text-center">
               Customer testimonial
             </h1>
@@ -407,7 +485,7 @@ function App() {
           </div>
 
           {/* seventh page  */}
-          <div className="w-[85%] h-[36.938rem] bg-[#1A1B1E] text-white flex justify-center items-center rounded-[40px]">
+          <div ref={ref5} className= {`${ref5visible ? 'spin' : ''} w-[85%] h-[36.938rem] bg-[#1A1B1E] text-white flex justify-center items-center rounded-[40px]`}>
             {/* left side  */}
             <div className=" w-[50%] flex flex-col gap-7 pl-24">
               <h1 className=" font-bold text-[2.47rem]">Founding members</h1>
@@ -445,8 +523,8 @@ function App() {
 
           <div className="w-full h-[12.375rem]"></div>
           {/* 9th page  */}
-          <div className="w-full flex justify-center items-center relative">
-            <div className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16">
+          <div  className="w-full flex justify-center items-center relative ">
+            <div ref={tilt2Ref} className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16 ">
               <div>
                 <img src={image.bitmojiguy2} alt="" />
               </div>
