@@ -183,6 +183,8 @@ function App() {
           </div>
         </div>
 
+        </div>
+
         {/* third page  */}
         <div ref={ref1}  className={`w-full h-[100vh] bg-white`}>
           <div className={`${ref1visible ? 'slide_in' : ''} w-full h-full mt-32 text-black bg-white rounded-t-[99px] flex justify-center items-center`}>
@@ -216,7 +218,6 @@ function App() {
                       no questions asked.
                     </p>
                   </div>
-                  <button className=" w-48 h-14 bg-white flex justify-center items-center text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
                   <button className=" w-48 h-14 bg-white flex justify-center items-center text-black gap-2 rounded-xl font-bold text-base hover:bg-black hover:text-white">
                     <span>Access Top Talent</span>
                     <svg
@@ -236,6 +237,9 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+
+        </div>
         </div>
 
         {/* fourth page  */}
@@ -329,7 +333,6 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="bg-[#F8F8F8] w-full h-28"></div>
 
         {/* fifth page  */}
         <div  ref={ref3} className=" bg-[#F8F8F8] w-full flex flex-col items-center slide_in">
@@ -366,6 +369,8 @@ function App() {
                   />
                 </Tilt>
               </div>
+            </div>
+
             </div>
 
             {/* second one for this guy  */}
@@ -412,6 +417,9 @@ function App() {
               </div>
             </div>
             <div className="h-20"></div>
+          </div>
+
+          </div>
           </div>
 
           {/* sixth page  */}
@@ -534,7 +542,6 @@ function App() {
             </div>
           </div>
 
-          <div className="w-full h-[12.375rem]"></div>
           {/* 9th page  */}
           <div ref={tilt2Ref} className="w-full flex justify-center items-center relative">
             <div className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16">
@@ -563,7 +570,6 @@ function App() {
             <div className="absolute w-[50%] h-[90vh] bg-[#1B1C22] rounded-3xl right-[5%] z-10"></div>
           </div>
 
-          <div className="w-full h-[12.375rem]"></div>
           {/* 10th page  */}
           <div className="w-[90%] h-[100vh] bg-[#1A1B1E] rounded-[84px] flex gap-64 text-white justify-center items-center">
             <div className="flex justify-between w-[80%]">
@@ -797,8 +803,7 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
     </>
   );
 }
