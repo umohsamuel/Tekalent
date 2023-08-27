@@ -2,8 +2,8 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="w-full flex justify-center items-center">
-      <nav className=" fixed z-[99999] flex justify-between items-center w-[90%] top-[3.5%] h-24 border rounded-xl px-9 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 bg-clip-padding backdrop-blur-sm">
+    <div className="w-full flex justify-center items-center navmorph fixed z-[9999] top-[3.5%]">
+      <nav className="flex justify-between items-center w-[90%]  h-[4.25rem] border rounded-xl px-9 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 opacity-80 ">
         <div className="flex gap-4 items-center">
           <svg
             width="43"
@@ -29,18 +29,18 @@ function Navbar() {
           <span className="text-white font-bold text-2xl">Tekalent</span>
         </div>
 
-        <button className=" w-56 h-14 bg-[#1A1B1E] text-white font-bold text-lg flex justify-center items-center gap-2 rounded-xl hover:bg-white hover:text-black">
+        <button className=" w-[13rem] h-[2.75rem] bg-[#1A1B1E] text-white hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black font-bold text-lg flex justify-center items-center gap-2 rounded-[10px]">
           <span>Access Top Talent</span>{" "}
           <svg
             width="16"
             height="12"
             viewBox="0 0 16 12"
-            fill="none"
+            fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M8.106 11.5741C7.994 11.5741 7.87267 11.5531 7.742 11.5111C7.61133 11.4691 7.49933 11.4061 7.406 11.3221C7.24733 11.1541 7.175 10.9746 7.189 10.7837C7.203 10.5928 7.308 10.421 7.504 10.2682L12.404 6.66007H0.91C0.658 6.66007 0.443333 6.58943 0.266 6.44816C0.0886667 6.30688 0 6.13316 0 5.92698C0 5.72079 0.0886667 5.54707 0.266 5.40579C0.443333 5.26452 0.658 5.19388 0.91 5.19388H12.404L7.504 1.5857C7.41067 1.50934 7.33833 1.4177 7.287 1.31079C7.23567 1.20389 7.21 1.10461 7.21 1.01298C7.21 0.944248 7.22867 0.864067 7.266 0.77243C7.294 0.718976 7.34067 0.638794 7.406 0.531885C7.546 0.371521 7.74433 0.285612 8.001 0.274158C8.25767 0.262703 8.49333 0.318067 8.708 0.440248L15.302 5.35425C15.33 5.37716 15.3603 5.40961 15.393 5.45161C15.4257 5.49361 15.4607 5.51461 15.498 5.51461V5.59479C15.498 5.65588 15.505 5.69979 15.519 5.72652C15.533 5.75325 15.5633 5.76661 15.61 5.76661V5.84679V5.92698C15.61 5.98043 15.603 6.02052 15.589 6.04725C15.575 6.07398 15.5447 6.08734 15.498 6.08734V6.16752C15.498 6.21334 15.477 6.25343 15.435 6.28779C15.393 6.32216 15.3487 6.33934 15.302 6.33934L8.708 11.2419C8.52133 11.4633 8.32067 11.5741 8.106 11.5741Z"
-              fill="white"
+              fill="currentColor"
             />
           </svg>
         </button>

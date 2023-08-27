@@ -16,19 +16,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.pg1 {
-  position: absolute;
-  top: 10%;
+.firstpagebg {
+  background: url("./assets/images/gridbluredbg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.pg1 img {
-  height: 100vh;
-  width: 100%;
-  border-radius: 9999px;
-  filter: blur(0.4px);
-  background-blend-mode: darken;
-  object-fit: cover;
-  opacity: 75%;
+.navmorph {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 

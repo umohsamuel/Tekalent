@@ -142,14 +142,14 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-dom@^18.2.7":
+"@types/react-dom@^18.0.11", "@types/react-dom@^18.2.7":
   version "18.2.7"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.7.tgz"
   integrity sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.2.15":
+"@types/react@*", "@types/react@^18.0.29", "@types/react@^18.2.15":
   version "18.2.15"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.2.15.tgz"
   integrity sha512-oEjE7TQt1fFTFSbf8kkNuc798ahTUzn3Le67/PWjE8MAfYAD/qB7O8hSTcromLFqHCt9bcdOg5GXMokzTjJ5SA==
@@ -1487,6 +1487,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-tilt@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/react-tilt/-/react-tilt-1.0.2.tgz"
+  integrity sha512-21tUUsmuw5id/6NDtKqwYTG4taVnw+BoUwIG6YsgPC9GI6cx4BnBuSqgriQYAYcv3bdGNzecaBL+rvQRAm28bg==
 
 "react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", react@^18.2.0:
   version "18.2.0"
