@@ -29,7 +29,7 @@ function Navbar() {
           <span className="text-white font-bold text-2xl">Tekalent</span>
         </div>
 
-        <button className=" w-56 h-14 bg-[#1A1B1E] text-white font-bold text-lg flex justify-center items-center gap-2 rounded-xl">
+        <button className=" w-56 h-14 bg-[#1A1B1E] text-white font-bold text-lg flex justify-center items-center gap-2 rounded-xl hover:bg-white hover:text-black">
           <span>Access Top Talent</span>{" "}
           <svg
             width="16"

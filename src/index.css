@@ -30,3 +30,111 @@
   object-fit: cover;
   opacity: 75%;
 }
+
+
+.enter_left{
+
+}
+
+.enter_right{
+
+}
+
+.delay_short{
+
+
+}
+
+.delay_long{
+
+
+}
+
+.tilt {
+  transition: transform 1.9s ease;
+}
+
+.tilt:hover {
+  transform: rotateY(180deg); 
+  transition: transform 0.9s ease;
+
+}
+
+.tilt2 {
+  transition: transform 1.9s ease;
+}
+
+.tilt2:hover {
+  transform: rotateZ(30deg); /* Adjust the tilt angle as desired */
+  transition: transform 0.9s ease;
+
+}
+
+
+/* styles.css */
+@keyframes slideIn {
+  from {
+    transform: translatey(-100%);
+  }
+  to {
+    transform: translatey(0);
+  }
+}
+
+
+
+
+
+/* styles.css */
+@keyframes slideInDelayed {
+  from {
+    transform: translatey(-100%);
+  }
+  to {
+    transform: translatey(0);
+  }
+}
+
+
+
+
+.slide_in {
+  animation: slideIn 0.5s ease;
+}
+
+.slide_inD {
+  animation: slideInDelayed 1.0s ease;
+}
+
+
+
+.tilt_div {
+  transition: transform 0.9s ease-out;
+}
+
+
+
+
+/* styles.css */
+@keyframes slideRight {
+  from {
+    transform: translatex(-100%);
+  }
+  to {
+    transform: translatex(0);
+  }
+}
+
+
+
+
+.slide_right {
+  animation: slideRight 0.5s ease;
+}
+
+
+.spin {
+  transform: rotateY(380deg); 
+  transition: transform 1.2s ease;
+
+}
