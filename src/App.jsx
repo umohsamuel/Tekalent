@@ -1,8 +1,21 @@
 import "./App.css";
 import image from "./components/image";
 import Navbar from "./components/navbar";
+import { Tilt } from "react-tilt";
 
 function App() {
+  const defaultOptions = {
+    reverse: false, // reverse the tilt direction
+    max: 35, // max tilt rotation (degrees)
+    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+
+    speed: 1000, // Speed of the enter/exit transition
+    transition: true, // Set a transition on enter/exit.
+    axis: null, // What axis should be disabled. Can be X or Y.
+    reset: true, // If the tilt effect has to be reset on exit.
+    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+  };
+
   return (
     <>
       {/* first page  */}
@@ -18,7 +31,7 @@ function App() {
             <p>Global Engineering Solutions Tailored for Startups,</p>
             <p>Introducing Tekalent's Risk-Free Talent Onboarding.</p>
           </div>
-          <button className=" flex justify-center items-center w-52 h-16 bg-white text-black gap-2 rounded-xl font-bold text-lg">
+          <button className=" flex justify-center items-center w-52 h-16 bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-lg">
             <span>Access Top Talent</span>
             <svg
               width="16"
@@ -61,7 +74,7 @@ function App() {
                   ground, we provide highly vetted and experienced software
                   engineers.
                 </p>
-                <button className=" w-48 h-14 bg-black flex justify-center items-center text-white gap-2 rounded-xl font-bold text-base">
+                <button className=" w-48 h-14 bg-black hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black flex justify-center items-center text-white gap-2 rounded-xl font-bold text-base">
                   <span>Access Top Talent</span>
                   <svg
                     width="15"
@@ -91,7 +104,7 @@ function App() {
 
         {/* third page  */}
         <div className="w-full h-[100vh] bg-white">
-          <div className="w-full h-full mt-32 text-black bg-white rounded-t-[99px] flex justify-center items-center">
+          <div className="w-full h-full mt-32 text-black bg-white  rounded-t-[99px] flex justify-center items-center">
             <div className=" w-[90%] h-[80%] bg-gradient-to-l from-white to-[#9597AA] border-l-2 rounded-3xl flex justify-between">
               {/* left section  */}
               <div className="w-[50%] h-full z-30 -mt-24 flex items-center justify-center">
@@ -120,7 +133,7 @@ function App() {
                       no questions asked.
                     </p>
                   </div>
-                  <button className=" w-48 h-14 bg-white flex justify-center items-center text-black gap-2 rounded-xl font-bold text-base">
+                  <button className=" w-48 h-14 bg-white flex justify-center items-center text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
                     <span>Access Top Talent</span>
                     <svg
                       width="15"
@@ -251,8 +264,21 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center bg-white rounded-3xl bg-transparent">
-                <img src={image.glassmorphism1} alt="" />
+              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center rounded-3xl bg-transparent">
+                <Tilt
+                  options={defaultOptions}
+                  style={{
+                    height: 528,
+                    width: 480,
+                    borderradius: 9999,
+                  }}
+                >
+                  <img
+                    src={image.glassmorphism1}
+                    alt=""
+                    className="w-full h-full"
+                  />
+                </Tilt>
               </div>
             </div>
 
@@ -265,7 +291,7 @@ function App() {
                   <p className=" font-medium text-2xl w-[21rem]">
                     Lots of time, money and extra fees involved.
                   </p>
-                  <button className=" w-48 h-14 bg-black flex justify-center items-center text-white gap-2 rounded-xl font-bold text-base">
+                  <button className=" w-48 h-14 bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
                     <span>Access Top Talent</span>
                     <svg
                       width="15"
@@ -283,8 +309,17 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center bg-white rounded-3xl bg-transparent">
-                <img src={image.glassmorphism2} alt="" />
+              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center rounded-3xl bg-transparent">
+                <Tilt
+                  options={defaultOptions}
+                  style={{
+                    height: 528,
+                    width: 480,
+                    borderradius: 9999,
+                  }}
+                >
+                  <img src={image.glassmorphism2} alt="" />
+                </Tilt>
               </div>
             </div>
             <div className="h-20"></div>
@@ -298,7 +333,7 @@ function App() {
 
             <div className="w-full h-[22.95rem] bg-gradient-to-r from-[#F7F7F8] to-[#9597AA] rounded-r-[2.5rem] mr-7 flex justify-center items-center gap-[50.688rem] relative">
               {/* Previous button  */}
-              <button className=" bg-[#1A1B1E] w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
+              <button className=" bg-[#1A1B1E] hover:bg-white text-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
                 <svg
                   width="21"
                   height="32"
@@ -308,7 +343,7 @@ function App() {
                 >
                   <path
                     d="M18.5 3L4 16L18.5 29"
-                    stroke="white"
+                    stroke="currentColor"
                     stroke-width="5"
                     stroke-linecap="round"
                   />
@@ -316,7 +351,7 @@ function App() {
               </button>
 
               {/* next button  */}
-              <button className=" bg-[#1A1B1E] w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
+              <button className=" bg-[#1A1B1E] hover:bg-white text-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
                 <svg
                   width="21"
                   height="32"
@@ -326,7 +361,7 @@ function App() {
                 >
                   <path
                     d="M2.49999 3L17 16L2.49999 29"
-                    stroke="white"
+                    stroke="currentColor"
                     stroke-width="5"
                     stroke-linecap="round"
                   />
@@ -381,7 +416,7 @@ function App() {
                 within the first 3 days, we'll cover the cost - no questions
                 asked.
               </p>
-              <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black text-base font-bold gap-2 rounded-xl">
+              <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out text-base font-bold gap-2 rounded-xl">
                 <span>Apply to become a member</span>
                 <svg
                   width="19"
@@ -504,7 +539,7 @@ function App() {
               <div className="flex flex-col gap-12">
                 <h1 className=" font-bold text-lg">Become a founding member</h1>
                 <div className="flex flex-col gap-32">
-                  <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black text-base font-bold gap-2 rounded-xl">
+                  <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out text-base font-bold gap-2 rounded-xl">
                     <span>Apply to become a member</span>
                     <svg
                       width="19"
