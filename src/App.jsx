@@ -331,13 +331,13 @@ function App() {
           {/* fifth page  */}
           <div className="rounded-t-[99px] rounded-b-[99px] bg-white w-full ">
             {/* first one for this guy  */}
-            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full gap-7 px-[2%]">
+            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full mybp:gap-7 gap-1 pl-[4%] px-[2%]">
               {/* left section  */}
               <div
                 ref={ref3}
                 className="w-[100%] h-full mybp:h-[33rem] block p-12 rounded-3xl bg-transparent"
               >
-                <div className="flex flex-col gap-9 justify-center w-full h-full">
+                <div className="flex flex-col gap-9 justify-center items-center mybp:items-start w-full h-full">
                   <h1
                     className={`${
                       ref3visible ? "slide_in" : ""
@@ -348,7 +348,7 @@ function App() {
                   <p
                     className={`${
                       ref3visible ? "slide_in" : ""
-                    } font-medium text-xs mybp:text-2xl w-[100%] slide_in"`}
+                    } font-medium text-center mybp:text-left text-xs mybp:text-2xl  slide_in"`}
                   >
                     We have engineers at a variety of price points, dependent on
                     their level of experience. Our most experienced engineers
@@ -357,29 +357,26 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className=" w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center rounded-3xl bg-transparent">
+              <div className=" w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center rounded-3xl bg-transparent ">
                 <Tilt
                   options={defaultOptions}
                   style={{
                     height: 528,
                     width: 480,
                     borderradius: 9999,
+                    paddingLeft: "7.5%",
                   }}
                 >
-                  <img
-                    src={image.glassmorphism1}
-                    alt=""
-                    className=" flex justify-center items-center w-full h-full"
-                  />
+                  <img src={image.glassmorphism1} alt="" className=" " />
                 </Tilt>
               </div>
             </div>
 
             {/* second one for this guy  */}
-            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full gap-7 px-[2%] ">
+            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full mybp:gap-7 gap-1 pl-[4%] px-[2%] ">
               {/* left section  */}
-              <div className="w-[100%] h-full mybp:h-[33rem] block p-12 rounded-3xl bg-transparent">
-                <div className="flex flex-col gap-9 justify-center items-start w-full h-full">
+              <div className="w-[100%] h-full mybp:h-[33rem] block mybp:p-12 p-3 rounded-3xl bg-transparent">
+                <div className="flex flex-col gap-9 justify-center items-center mybp:items-start w-full h-full">
                   <h1
                     ref={ref4}
                     className={`${
@@ -391,11 +388,11 @@ function App() {
                   <p
                     className={`${
                       ref4visible ? "slide_in" : ""
-                    } font-medium text-xs mybp:text-2xl w-[100%]`}
+                    } font-medium text-xs mybp:text-2xl `}
                   >
                     Lots of time, money and extra fees involved.
                   </p>
-                  <button className=" p-3 text-xs max-w-48 max-h-14 whitespace-nowrap bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold  mybp:text-base">
+                  <button className=" p-3 text-xs max-w-48 max-h-14 whitespace-nowrap bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold  mybp:text-base z-10">
                     <span>Access Top Talent</span>
                     <svg
                       width="15"
@@ -413,24 +410,21 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center rounded-3xl bg-transparent">
+              <div className="w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center mybp:rounded-3xl bg-transparent ">
                 <Tilt
                   options={defaultOptions}
                   style={{
                     height: 528,
                     width: 480,
                     borderradius: 9999,
+                    paddingLeft: "7.5%",
                   }}
                 >
-                  <img
-                    src={image.glassmorphism2}
-                    alt=""
-                    className="flex justify-center items-center w-full h-full"
-                  />
+                  <img src={image.glassmorphism2} alt="" className="" />
                 </Tilt>
               </div>
             </div>
-            <div className="h-20"></div>
+            <div className=" mybp:h-20"></div>
           </div>
 
           {/* sixth page  */}
@@ -491,13 +485,13 @@ function App() {
           <div className="w-full flex justify-center items-center relative ">
             <div
               ref={tilt2Ref}
-              className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16 "
+              className="w-[80%] h-[100%] mybp:h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16 "
             >
-              <div className="flex gap-4">
+              <div className="flex gap-4 py-4">
                 <div className="w-full">
                   <img src={image.bitmojiguy2} alt="" />
                 </div>
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 ">
                   <h1 className="font-bold text-sm mybp:text-2xl text-[#1A1B1E]">
                     “Learn more about me”
                   </h1>
@@ -519,21 +513,21 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="absolute w-[50%] h-[90vh] bg-[#1B1C22] rounded-3xl right-[5%] z-10"></div>
+            <div className="absolute w-[50%] h-[110%] mybp:h-[90vh] bg-[#1B1C22] rounded-3xl right-[5%] z-10"></div>
           </div>
 
           <div className="w-full h-[12.375rem]"></div>
           {/* 10th page  */}
           <div className=" w-full mybp:w-[90%] h-[100%] bg-[#1A1B1E] mybp:rounded-[84px] rounded-t-[84px] flex gap-64 text-white justify-center items-center p-4 pt-8">
-            <div className="flex flex-col justify-center items-center mybp:flex-row mybp:justify-between w-[80%] gap-8">
+            <div className="flex flex-col justify-center items-center mybp:flex-row mybp:justify-between w-[90%] gap-8">
               {/* first rights  */}
-              <div className=" flex mybp:flex-col gap-[20%] mybp:gap-[80%]">
+              <div className=" hidden mybp:flex mybp:flex-col gap-[20%] mybp:gap-[80%]">
                 <h1 className=" font-semibold text-xl">Tekalent</h1>
                 <p className="  mybp:w-[9.7rem]">© 2023. All rights reserved</p>
               </div>
 
               {/* sencond sec  */}
-              <div className="flex flex-col gap-10">
+              <div className="hidden mybp:flex flex-col gap-10">
                 <h1>Contact us</h1>
                 <hr className="h-px my-2 mybp:my-8 w-[90%] bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
@@ -585,8 +579,70 @@ function App() {
                 </div>
               </div>
 
+              {/* media for smaller devices  */}
+              <div className=" mybp:hidden flex justify-between w-full gap-6 pt-4">
+                {/* first rights  */}
+                <div className=" flex flex-col items-center gap-[80%]">
+                  <h1 className=" font-semibold text-xl">Tekalent</h1>
+                  <p className=" text-xs">© 2023. All rights reserved</p>
+                </div>
+
+                {/* sencond sec  */}
+                <div className="flex flex-col gap-10">
+                  <h1>Contact us</h1>
+                  <hr className="h-px my-2 mybp:my-8 w-[90%] bg-gray-200 border-0 dark:bg-gray-700"></hr>
+
+                  {/* EMAIl  */}
+                  <div className="flex items-center">
+                    <div className="h-full flex items-center gap-3">
+                      <svg
+                        width="20"
+                        height="16"
+                        viewBox="0 0 20 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.285 15.3481H3.085C2.67434 15.3481 2.27834 15.2711 1.897 15.1171C1.51567 14.9631 1.182 14.7395 0.896005 14.4461C0.610005 14.1528 0.390005 13.8191 0.236005 13.4451C0.0820049 13.0711 0.00500488 12.6788 0.00500488 12.2681V3.46814C0.00500488 3.23348 0.0930049 3.02814 0.269005 2.85214C0.445005 2.67614 0.650338 2.58814 0.885005 2.58814C1.11967 2.58814 1.325 2.67614 1.501 2.85214C1.677 3.02814 1.765 3.23348 1.765 3.46814V12.2681C1.765 12.6495 1.89334 12.9648 2.15 13.2141C2.40667 13.4635 2.71834 13.5881 3.085 13.5881H16.285C16.6517 13.5881 16.9633 13.4635 17.22 13.2141C17.4767 12.9648 17.605 12.6495 17.605 12.2681V3.46814C17.605 3.23348 17.693 3.02814 17.869 2.85214C18.045 2.67614 18.2503 2.58814 18.485 2.58814C18.7197 2.58814 18.925 2.67614 19.101 2.85214C19.277 3.02814 19.365 3.23348 19.365 3.46814V12.2681C19.365 12.6788 19.288 13.0711 19.134 13.4451C18.98 13.8191 18.76 14.1528 18.474 14.4461C18.188 14.7395 17.8543 14.9631 17.473 15.1171C17.0917 15.2711 16.6957 15.3481 16.285 15.3481ZM3.085 0.388144H16.285C16.6957 0.388144 17.088 0.465144 17.462 0.619144C17.836 0.773145 18.1697 0.996811 18.463 1.29014C18.7563 1.58348 18.98 1.91714 19.134 2.29114C19.288 2.66514 19.365 3.05748 19.365 3.46814C19.365 3.61481 19.3283 3.75781 19.255 3.89714C19.1817 4.03648 19.079 4.14281 18.947 4.21614L11.313 8.99014C10.829 9.29814 10.2863 9.45214 9.68501 9.45214C9.08367 9.45214 8.54101 9.29814 8.057 8.99014L0.423005 4.21614C0.291005 4.14281 0.188338 4.03648 0.115005 3.89714C0.0416716 3.75781 0.00500488 3.61481 0.00500488 3.46814C0.00500488 3.05748 0.0820049 2.66514 0.236005 2.29114C0.390005 1.91714 0.613672 1.58348 0.907005 1.29014C1.20034 0.996811 1.534 0.773145 1.908 0.619144C2.282 0.465144 2.67434 0.388144 3.085 0.388144ZM17.539 3.02814C17.451 2.79348 17.2897 2.58814 17.055 2.41214C16.8203 2.23615 16.5637 2.14814 16.285 2.14814H3.085C2.821 2.14814 2.56434 2.22881 2.315 2.39014C2.10967 2.55148 1.94834 2.76414 1.831 3.02814L8.981 7.49414C9.201 7.62614 9.43567 7.69214 9.68501 7.69214C9.93434 7.69214 10.169 7.62614 10.389 7.49414L17.539 3.02814Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <div>
+                        {" "}
+                        <p>Email</p>
+                        <p>ade@tekalent.com</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr className="h-px my-2 mybp:my-8 w-[90%] bg-gray-200 border-0 dark:bg-gray-700"></hr>
+
+                  {/* phone  */}
+                  <div className="flex items-baseline">
+                    <div className="h-full flex items-center gap-3">
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14.404 20.5479C13.3627 20.5479 12.4313 20.2765 11.61 19.7339L11.566 19.7119C9.46867 18.3039 7.518 16.6979 5.714 14.8939C3.91 13.0899 2.28934 11.1245 0.852005 8.99785L0.830005 8.95385C0.170005 7.91252 -0.0939951 6.79052 0.0380049 5.58785C0.111338 5.00119 0.276338 4.44019 0.533005 3.90485C0.789672 3.36952 1.12334 2.89652 1.534 2.48585L2.15 1.86985C2.37 1.64985 2.623 1.48119 2.909 1.36385C3.195 1.24652 3.492 1.18785 3.8 1.18785C4.43067 1.18785 4.97334 1.41519 5.428 1.86985L7.98 4.42185C8.2 4.64185 8.36867 4.89852 8.486 5.19185C8.60334 5.48518 8.662 5.78218 8.662 6.08285C8.662 6.38352 8.60701 6.67319 8.497 6.95185C8.387 7.23052 8.21467 7.48718 7.98 7.72185C7.87734 7.80985 7.826 7.93818 7.826 8.10685C7.826 8.27552 7.87734 8.41119 7.98 8.51385L12.072 12.5839C12.16 12.7012 12.292 12.7599 12.468 12.7599C12.4973 12.7599 12.556 12.7525 12.644 12.7379L12.688 12.7159L12.864 12.5839C13.0693 12.3785 13.3223 12.2135 13.623 12.0889C13.9237 11.9642 14.217 11.9019 14.503 11.9019C14.789 11.9019 15.0823 11.9642 15.383 12.0889C15.6837 12.2135 15.9367 12.3785 16.142 12.5839L18.694 15.1359C18.914 15.3559 19.0827 15.6125 19.2 15.9059C19.3173 16.1992 19.376 16.4889 19.376 16.7749C19.376 17.0609 19.3173 17.3542 19.2 17.6549C19.0827 17.9555 18.914 18.2085 18.694 18.4139L18.1 19.0299C17.5867 19.5432 17.022 19.9172 16.406 20.1519C15.7753 20.4159 15.108 20.5479 14.404 20.5479ZM12.578 18.2599C13.1353 18.6119 13.744 18.7879 14.404 18.7879C14.8733 18.7879 15.317 18.7035 15.735 18.5349C16.153 18.3662 16.5233 18.1132 16.846 17.7759L17.462 17.1819C17.5647 17.0499 17.616 16.9105 17.616 16.7639C17.616 16.6172 17.5647 16.4925 17.462 16.3899L14.91 13.8379C14.8513 13.7645 14.7817 13.7169 14.701 13.6949C14.6203 13.6729 14.5543 13.6619 14.503 13.6619C14.4517 13.6619 14.3893 13.6729 14.316 13.6949C14.2427 13.7169 14.1693 13.7645 14.096 13.8379C13.8907 14.0432 13.6377 14.2082 13.337 14.3329C13.0363 14.4575 12.743 14.5199 12.457 14.5199C12.171 14.5199 11.874 14.4612 11.566 14.3439C11.3167 14.2265 11.0673 14.0579 10.818 13.8379L6.748 9.74585C6.29334 9.29119 6.066 8.74852 6.066 8.11785C6.066 7.80985 6.12467 7.51285 6.242 7.22685C6.35934 6.94085 6.528 6.68785 6.748 6.46785C6.85067 6.33585 6.902 6.20385 6.902 6.07185C6.902 5.93985 6.85067 5.80785 6.748 5.67585L4.196 3.12385C4.07867 3.00652 3.93934 2.94785 3.778 2.94785C3.61667 2.94785 3.492 3.00652 3.404 3.12385L2.788 3.71785C2.50934 3.99652 2.28567 4.31552 2.117 4.67485C1.94834 5.03419 1.842 5.40452 1.798 5.78585C1.754 6.16718 1.77967 6.54852 1.875 6.92985C1.97034 7.31118 2.12067 7.67052 2.326 8.00785V8.02985C3.69 10.0392 5.23367 11.9055 6.95701 13.6289C8.68034 15.3522 10.5467 16.8959 12.556 18.2599H12.578Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <div>
+                        <p>Phone</p>
+                        <p>(414) 687 - 5892</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* third guy  */}
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col pt-6 mybp:pt-0 gap-6 mybp:gap-12 justify-center mybp:justify-normal text-center mybp:text-left">
                 <h1 className=" font-bold mybp:text-lg text-sm">
                   Become a founding member
                 </h1>

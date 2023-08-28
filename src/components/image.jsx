@@ -15,6 +15,8 @@ import grid7thpageiguess from "../assets/images/grid7thpageiguess.svg";
 import bitmojiguy2 from "../assets/images/bitmojiguy2.svg";
 import gridbluredbg from "../assets/images/gridbluredbg.png";
 import menuburger from "../assets/images/menuburger.svg";
+import trynewsvg from "../assets/images/trynewsvg.svg";
+import pngtest from "../assets/images/pngtest.png";
 
 export default {
   grid,
@@ -34,4 +36,6 @@ export default {
   bitmojiguy2,
   gridbluredbg,
   menuburger,
+  trynewsvg,
+  pngtest,
 };
