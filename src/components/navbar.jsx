@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import image from "./image";
 
 function Navbar() {
+  const [menuburger, setMenuburger] = useState(false);
+
+  const handlenavclick = () => {
+    setMenuburger((prev) => !prev);
+  };
   return (
-    <div className="w-full flex justify-center items-center navmorph fixed z-[9999] top-[3.5%]">
-      <nav className="flex justify-between items-center w-[90%]  h-[4.25rem] border rounded-xl px-9 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 opacity-80 ">
+    <div className="w-[90%] flex justify-center items-center navmorph fixed z-[9999] top-[3.5%] rounded-xl">
+      <nav className="flex justify-between items-center w-full h-12 mybp:h-[4.25rem] border rounded-xl mybp:px-9 px-3 bg-gradient-to-r from-[#1A1A1A] to-[#838383] bg-opacity-100 opacity-80 ">
         <div className="flex gap-4 items-center">
           <svg
             width="43"
@@ -26,10 +32,12 @@ function Navbar() {
               fill="white"
             />
           </svg>
-          <span className="text-white font-bold text-2xl">Tekalent</span>
+          <span className="text-white font-bold mybp:text-2xl text-xs">
+            Tekalent
+          </span>
         </div>
 
-        <button className=" w-[13rem] h-[2.75rem] bg-[#1A1B1E] text-white hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black font-bold text-lg flex justify-center items-center gap-2 rounded-[10px]">
+        <button className="hidden max-w-[13rem] p-3 max-h-[2.75rem] bg-[#1A1B1E] text-white hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black font-bold text-lg mybp:flex justify-center items-center gap-2 rounded-[10px]">
           <span>Access Top Talent</span>{" "}
           <svg
             width="16"
@@ -44,6 +52,18 @@ function Navbar() {
             />
           </svg>
         </button>
+        <div className="relative mybp:hidden">
+          <button onClick={handlenavclick}>
+            <img src={image.menuburger} alt="" />
+          </button>
+          {menuburger ? (
+            <div className=" w-[17vw] h-16 centering absolute bg-black z-50 text-black flex justify-center">
+              <a href="/" className=" text-xs text-blue-300 font-bold">
+                Access top talent
+              </a>
+            </div>
+          ) : null}
+        </div>
       </nav>
     </div>
   );

@@ -14,6 +14,7 @@ import fivestars from "../assets/images/5stars.svg";
 import grid7thpageiguess from "../assets/images/grid7thpageiguess.svg";
 import bitmojiguy2 from "../assets/images/bitmojiguy2.svg";
 import gridbluredbg from "../assets/images/gridbluredbg.png";
+import menuburger from "../assets/images/menuburger.svg";
 
 export default {
   grid,
@@ -32,4 +33,5 @@ export default {
   grid7thpageiguess,
   bitmojiguy2,
   gridbluredbg,
+  menuburger,
 };

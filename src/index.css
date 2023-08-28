@@ -28,19 +28,10 @@
   -webkit-backdrop-filter: blur(5px);
 }
 
-
-
-
-
 .tilt {
   transition: transform 1.9s ease;
-  transform: rotateY(360deg); 
-
+  transform: rotateY(360deg);
 }
-
-
-
-
 
 .tilt2 {
   transition: transform 1.9s ease;
@@ -49,9 +40,7 @@
 .tilt2:hover {
   transform: rotateZ(30deg); /* Adjust the tilt angle as desired */
   transition: transform 0.9s ease;
-
 }
-
 
 /* styles.css */
 @keyframes slideIn {
@@ -63,39 +52,27 @@
   }
 }
 
-
-
-
-
 /* styles.css */
 @keyframes slideInDelayed {
   from {
-    transform: translatey(-100%);
+    transform: translatey(-50vh);
   }
   to {
     transform: translatey(0);
   }
 }
 
-
-
-
 .slide_in {
   animation: slideIn 0.5s ease;
 }
 
 .slide_inD {
-  animation: slideInDelayed 1.0s ease;
+  animation: slideInDelayed 1s ease;
 }
-
-
 
 .tilt_div {
   transition: transform 0.9s ease-out;
 }
-
-
-
 
 /* styles.css */
 @keyframes slideRight {
@@ -107,16 +84,21 @@
   }
 }
 
-
-
-
 .slide_right {
   animation: slideRight 0.5s ease;
 }
 
-
 .spin {
-  transform: rotateY(360deg); 
+  transform: rotateY(360deg);
   transition: transform 1.2s ease;
+}
 
+* {
+  /* border: solid 1px pink; */
+}
+
+.centering {
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem;
 }

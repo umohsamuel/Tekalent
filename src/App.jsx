@@ -1,9 +1,10 @@
 import "./App.css";
 import image from "./components/image";
-import { useInView } from 'react-intersection-observer';
-import React, { useRef, useEffect } from 'react';
+import { useInView } from "react-intersection-observer";
+import React, { useRef, useEffect } from "react";
 import Navbar from "./components/navbar";
 import { Tilt } from "react-tilt";
+import Review from "./components/review";
 
 function App() {
   const defaultOptions = {
@@ -18,7 +19,6 @@ function App() {
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
 
-
   const { ref: ref1, inView: ref1visible } = useInView();
   const { ref: ref2, inView: ref2visible } = useInView();
   const { ref: ref3, inView: ref3visible } = useInView();
@@ -26,16 +26,12 @@ function App() {
   const { ref: ref5, inView: ref5visible } = useInView();
   const { ref: ref6, inView: ref6visible } = useInView();
 
-
-
   const tiltRef = useRef(null);
   const tilt2Ref = useRef(null);
-
 
   useEffect(() => {
     const tiltDiv = tiltRef.current;
     const tilt2Div = tilt2Ref.current;
-
 
     const handleMouseMove = (event) => {
       const rect = tiltDiv.getBoundingClientRect();
@@ -53,61 +49,48 @@ function App() {
       const angleX2 = (event.clientY - centerY) * 0.0009; // Adjust sensitivity
       const angleY2 = (event.clientX - centerX) * -0.018; // Adjust sensitivity
 
-
       tiltDiv.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
       tilt2Div.style.transform = `rotateX(${angleX2}deg) rotateY(${angleY2}deg)`;
-
     };
 
     const handleMouseLeave = () => {
-      tiltDiv.style.transform = 'rotateX(0) rotateY(0)';
-      tilt2Div.style.transform = 'rotateX(0) rotateY(0)';
-
+      tiltDiv.style.transform = "rotateX(0) rotateY(0)";
+      tilt2Div.style.transform = "rotateX(0) rotateY(0)";
     };
 
-    tiltDiv.addEventListener('mousemove', handleMouseMove);
-    tiltDiv.addEventListener('mouseleave', handleMouseLeave);
+    tiltDiv.addEventListener("mousemove", handleMouseMove);
+    tiltDiv.addEventListener("mouseleave", handleMouseLeave);
 
-
-
-    tilt2Div.addEventListener('mousemove', handleMouseMove);
-    tilt2Div.addEventListener('mouseleave', handleMouseLeave);
-
-
-
-
+    tilt2Div.addEventListener("mousemove", handleMouseMove);
+    tilt2Div.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      tiltDiv.removeEventListener('mousemove', handleMouseMove);
-      tiltDiv.removeEventListener('mouseleave', handleMouseLeave);
+      tiltDiv.removeEventListener("mousemove", handleMouseMove);
+      tiltDiv.removeEventListener("mouseleave", handleMouseLeave);
 
-
-      tilt2Div.removeEventListener('mousemove', handleMouseMove);
-      tilt2Div.removeEventListener('mouseleave', handleMouseLeave);
+      tilt2Div.removeEventListener("mousemove", handleMouseMove);
+      tilt2Div.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
-
-
-
-
-
   return (
-    <>
+    <div className="w-full h-full flex flex-col items-center justify-center gap-40">
       {/* first page  */}
       <div className="firstpagebg w-full h-[100vh] relative text-white">
         {/* navbar  */}
-        <Navbar />
+        <div className="flex justify-center relative">
+          <Navbar />
+        </div>
         {/* text content of first page  */}
-        <div className="w-full pt-32 flex flex-col justify-center items-center text-center gap-9">
-          <h1 className="font-bold text-6xl w-[48.625rem]">
+        <div className="w-full pt-32 flex flex-col justify-center items-center text-center gap-6">
+          <h1 className="font-bold text-2xl mybp:text-[2.86rem] mybp:leading-[3.638rem] max-w-[37.805rem]">
             Hire world-class engineers for a fraction of the price
           </h1>
-          <div className="flex flex-col font-normal text-xl">
+          <div className="flex flex-col font-normal mybp:text-base text-xs">
             <p>Global Engineering Solutions Tailored for Startups,</p>
             <p>Introducing Tekalent's Risk-Free Talent Onboarding.</p>
           </div>
-          <button className=" flex justify-center items-center w-52 h-16 bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-lg">
+          <button className=" flex justify-center items-center p-3 max-w-[12rem] whitespace-nowrap max-h-12 bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-xs mybp:text-lg z-40">
             <span>Access Top Talent</span>
             <svg
               width="16"
@@ -125,32 +108,39 @@ function App() {
         </div>
 
         {/* images div  */}
-        <div className="  flex justify-center items-center  slide_inD">
+        <div className=" mybp:-mt-10 pb-4 flex justify-center items-center slide_inD">
           <img
             src={image.wholepage1imgframe}
             alt=""
-            className="opacity-100 z-10 w-[75%]"
+            className="opacity-100 z-10 px-4 mybp:px-0 w-full mybp:w-[75%]"
           />
         </div>
       </div>
 
-      <div className="bg-white rounded-t-[99px]">
+      <div className="bg-white rounded-t-[99px] w-full">
         {/* second page  */}
-        <div ref={ref2} className="w-full h-[100vh] mt-96 text-black bg-white rounded-t-[99px] flex justify-center items-center ">
-          <div className= {`${ref2visible ? 'slide_in' : ''} " w-[90%] h-[80%] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex justify-between"`}>
+        <div
+          ref={ref2}
+          className="w-full mybp:h-[100vh] h-full text-black bg-white rounded-t-[99px] flex justify-center items-center "
+        >
+          <div
+            className={`${
+              ref2visible ? "slide_in" : ""
+            } " w-[90%] h-[80%] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex flex-col mybp:flex-row justify-center items-center mybp:justify-between mybp:flex mt-12 "`}
+          >
             {/* left section  */}
-            <div className="w-[50%] h-full flex flex-col items-center py-24">
-              <div className="grid gap-9">
-                <h1 className=" w-[20.7rem] font-bold text-4xl">
+            <div className=" mybp:w-[50%] w-[80%] h-full flex flex-col items-center justify-center py-8">
+              <div className="grid gap-9 text-center mybp:text-left place-items-center w-full">
+                <h1 className=" w-[80%] font-bold mybp:text-4xl text-lg">
                   Tekalent's Premier Talent Solutions
                 </h1>
-                <p className=" w-[31.938rem] font-medium text-xl">
+                <p className=" w-[90%] font-medium mybp:text-xl text-xs">
                   Tekalent brings you the best talent from across the globe. For
                   early stage startups that want to get their product off the
                   ground, we provide highly vetted and experienced software
                   engineers.
                 </p>
-                <button className=" w-48 h-14 bg-black hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black flex justify-center items-center text-white gap-2 rounded-xl font-bold text-base">
+                <button className="text-xs max-w-48 max-h-14 p-3 whitespace-nowrap bg-black hover:bg-white hover:text-[#1A1B1E] transition delay-150 duration-150 ease-in-out hover:border hover:border-black flex justify-center items-center text-white gap-2 rounded-xl font-bold mybp:text-base">
                   <span>Access Top Talent</span>
                   <svg
                     width="15"
@@ -168,7 +158,11 @@ function App() {
               </div>
             </div>
             {/* right section  */}
-            <div className= {`${ref2visible ? 'tilt' : ''} w-[50%] h-full z-30 mt-24 flex justify-center`}>
+            <div
+              className={`${
+                ref2visible ? "tilt" : ""
+              } mybp:w-[50%] w-[80%] h-full z-30 -mb-24 mybp:mt-24 flex justify-center`}
+            >
               <img
                 src={image.finalpage2group}
                 alt=""
@@ -179,11 +173,15 @@ function App() {
         </div>
 
         {/* third page  */}
-        <div ref={ref1} className="w-full h-[100vh] bg-white">
-          <div className= {`${ref1visible ? 'slide_in' : ''} "w-full h-full mt-32 text-black bg-white  rounded-t-[99px] flex justify-center items-center"`}>
-            <div className=" w-[90%] h-[80%] bg-gradient-to-l from-white to-[#9597AA] border-l-2 rounded-3xl flex justify-between">
+        <div ref={ref1} className="w-full h-full mybp:h-[100vh] bg-white">
+          <div
+            className={`${
+              ref1visible ? "slide_in" : ""
+            } "w-full h-full mybp:mt-32 mt-64 text-black bg-white  rounded-t-[99px] flex justify-center items-center"`}
+          >
+            <div className=" w-[90%] h-[80%] bg-gradient-to-l from-white to-[#9597AA] border-l-2 rounded-3xl mybp:justify-between mybp:flex mybp:flex-row flex flex-col items-center mt-12">
               {/* left section  */}
-              <div className="w-[50%] h-full z-30 -mt-24 flex items-center justify-center">
+              <div className=" mybp:w-[50%] w-[80%] h-full z-30 -mt-24 flex items-center justify-center">
                 <img
                   src={image.page3left}
                   alt=""
@@ -191,12 +189,12 @@ function App() {
                 />
               </div>
               {/* right section  */}
-              <div className="w-[50%] h-full flex flex-col items-center justify-center">
-                <div className="grid gap-9">
-                  <h1 className=" w-[24.8rem] font-bold text-4xl">
+              <div className=" mybp:w-[50%] w-[80%] h-full flex flex-col items-center justify-center py-8">
+                <div className="grid gap-9 text-center mybp:text-left place-items-center w-full">
+                  <h1 className=" max-w-[80%] font-bold mybp:text-4xl text-lg">
                     Tekalent's Exceptional Software Engineers
                   </h1>
-                  <div className="w-[31.938rem] font-medium text-xl flex flex-col gap-8">
+                  <div className="max-w-[80%] font-medium mybp:text-xl text-xs flex flex-col gap-8 items-center">
                     <p>
                       Our accomplished software engineers, hailing from diverse
                       backgrounds, bring proven expertise to amplify your
@@ -209,7 +207,7 @@ function App() {
                       no questions asked.
                     </p>
                   </div>
-                  <button className=" w-48 h-14 bg-white flex justify-center items-center text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
+                  <button className="p-3 text-xs max-w-48 max-h-14 whitespace-nowrap bg-white flex justify-center items-center text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold mybp:text-base">
                     <span>Access Top Talent</span>
                     <svg
                       width="15"
@@ -231,24 +229,27 @@ function App() {
         </div>
 
         {/* fourth page  */}
-        <div ref={tiltRef} className="w-full text-black bg-gradient-to-b from-white to-[#F8F8F8] rounded-t-[99px] flex justify-center items-center tilt_div ">
+        <div
+          ref={tiltRef}
+          className="w-full text-black bg-gradient-to-b from-white to-[#F8F8F8] rounded-t-[99px] flex justify-center items-center tilt_div mt-32 "
+        >
           <div className=" w-[90%] py-[4.75rem] bg-gradient-to-r from-white to-[#9597AA] border-r-2 rounded-3xl flex flex-col justify-between">
             {/* top fourth page  */}
-            <div className="flex justify-center items-center gap-7 px-[2%] ">
+            <div className="flex flex-col mybp:flex-row justify-center items-center gap-7 px-[2%] ">
               {/* left section  */}
-              <div className="w-[42.063rem] h-[33rem] block p-12 bg-white rounded-3xl ">
+              <div className=" mybp:w-[55%] w-[100%] h-full mybp:h-[33rem] block p-6 mybp:p-12 bg-white rounded-3xl ">
                 <img src={image.iconlogotop} alt="" />
-                <div className="grid gap-9">
-                  <h1 className="  font-bold text-2xl">
+                <div className="grid gap-9 w-[100%]">
+                  <h1 className=" font-bold mybp:text-2xl text-sm">
                     Vetting and Verification
                   </h1>
-                  <div className="w-[34rem] flex flex-col gap-12">
-                    <p className=" font-normal text-lg">
+                  <div className="w-[100%] flex flex-col gap-12">
+                    <p className=" font-normal text-xs   mybp:text-lg">
                       We only accept the top 1% of our applicants through a
                       rigorous series of assessments designed to test for both
                       hard and soft skills:
                     </p>
-                    <p className=" font-semibold text-lg">
+                    <p className=" font-semibold text-xs   mybp:text-lg">
                       These include psychometric tests, coding challenges and
                       pair programming exercises.
                     </p>
@@ -256,17 +257,19 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[30rem] h-[33rem] z-30 block p-12 bg-white rounded-3xl">
+              <div className=" mybp:w-[45%] w-full mybp:h-[33rem] h-full z-30 block p-6 mybp:p-12 bg-white rounded-3xl">
                 <img src={image.iconlogotop2} alt="" />
-                <div className="grid gap-9">
-                  <h1 className="  font-bold text-2xl">Global Perspective</h1>
-                  <div className="w-[24.063rem] flex flex-col gap-12">
-                    <p className=" font-normal text-lg">
+                <div className="grid gap-9 w-[100%]">
+                  <h1 className="  font-bold mybp:text-2xl text-sm">
+                    Global Perspective
+                  </h1>
+                  <div className="w-[100%] flex flex-col gap-12">
+                    <p className=" font-normal text-xs mybp:text-lg">
                       Our engineers come from diverse cultural and professional
                       backgrounds, offering a rich blend of perspectives that
                       can drive innovation.
                     </p>
-                    <p className=" font-semibold text-lg">
+                    <p className=" font-semibold text-xs mybp:text-lg">
                       This global perspective is harnessed to deliver solutions
                       tailored to your local market, giving your startup a
                       competitive edge.
@@ -277,21 +280,21 @@ function App() {
             </div>
 
             {/* bottom fourth page  */}
-            <div className="flex justify-center items-center gap-7 px-[2%] mt-[2.688rem]">
+            <div className="flex flex-col mybp:flex-row justify-center items-center gap-7 px-[2%] mt-[2.688rem]">
               {/* left section  */}
-              <div className="w-[30rem] h-[33rem] z-30 block p-12 bg-white rounded-3xl">
+              <div className=" mybp:w-[45%] w-[100%] h-full mybp:h-[33rem] z-30 block p-6 mybp:p-12 bg-white rounded-3xl">
                 <img src={image.iconlogotop2} alt="" />
-                <div className="grid gap-9">
-                  <h1 className=" font-bold text-2xl">
+                <div className="grid gap-9 w-[100%]">
+                  <h1 className=" font-bold text-base mybp:text-2xl">
                     Technologies & experience
                   </h1>
-                  <div className="w-[24.063rem] flex flex-col gap-12">
-                    <p className=" font-normal text-lg">
+                  <div className="w-[100%] flex flex-col gap-12">
+                    <p className=" font-normal text-xs mybp:text-lg">
                       We have engineers with production experience across
                       several technologies (e.g. Javascript, Python, Go, Swift,
                       Java, Rust).
                     </p>
-                    <p className=" font-semibold text-lg">
+                    <p className=" font-semibold text-xs mybp:text-lg">
                       They have worked at several Fortune 500 companies and
                       coveted startups like ChipperCash and Andela.
                     </p>
@@ -299,19 +302,19 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[42.063rem] h-[33rem] block p-12 bg-white rounded-3xl ">
+              <div className=" mybp:w-[55%] w-full mybp:h-[33rem] h-full block p-6 mybp:p-12 bg-white rounded-3xl ">
                 <img src={image.iconlogotop} alt="" />
-                <div className="grid gap-9">
-                  <h1 className=" font-bold text-2xl">
+                <div className="grid gap-9 w-[100%]">
+                  <h1 className=" font-bold mybp:text-2xl text-sm">
                     Proven Results, Rapid Integration
                   </h1>
-                  <div className="w-[34rem] flex flex-col gap-12">
-                    <p className=" font-normal text-lg">
+                  <div className="w-[100%] flex flex-col gap-12">
+                    <p className=" font-normal text-xs mybp:text-lg">
                       We know that startups need to hit the ground running. Our
                       engineers don't just bring impressive resumes; they're
                       adept at quickly integrating into teams and projects.
                     </p>
-                    <p className=" font-semibold text-lg">
+                    <p className=" font-semibold text-xs mybp:text-lg">
                       You'll be amazed at how seamlessly they become an
                       extension of your startup's mission.
                     </p>
@@ -323,16 +326,30 @@ function App() {
         </div>
         <div className="bg-[#F8F8F8] w-full h-28"></div>
 
-        {/* fifth page  */}
+        {/* Rest pages here  */}
         <div className=" bg-[#F8F8F8] w-full flex flex-col items-center">
-          <div className= "rounded-t-[99px] rounded-b-[99px] bg-white ">
+          {/* fifth page  */}
+          <div className="rounded-t-[99px] rounded-b-[99px] bg-white w-full ">
             {/* first one for this guy  */}
-            <div className="flex justify-center items-center h-full w-full gap-7 px-[2%] ">
+            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full gap-7 px-[2%]">
               {/* left section  */}
-              <div  ref={ref3} className="w-[42.063rem] h-[33rem] block p-12 rounded-3xl bg-transparent">
+              <div
+                ref={ref3}
+                className="w-[100%] h-full mybp:h-[33rem] block p-12 rounded-3xl bg-transparent"
+              >
                 <div className="flex flex-col gap-9 justify-center w-full h-full">
-                  <h1 className={`${ref3visible ? 'slide_in' : ''} font-bold text-[3.25rem]`} >Pricing</h1>
-                  <p className= {`${ref3visible ? 'slide_in' : ''} font-medium text-2xl w-[34rem] slide_in"`}>
+                  <h1
+                    className={`${
+                      ref3visible ? "slide_in" : ""
+                    } font-bold text-2xl mybp:text-[3.25rem]`}
+                  >
+                    Pricing
+                  </h1>
+                  <p
+                    className={`${
+                      ref3visible ? "slide_in" : ""
+                    } font-medium text-xs mybp:text-2xl w-[100%] slide_in"`}
+                  >
                     We have engineers at a variety of price points, dependent on
                     their level of experience. Our most experienced engineers
                     work out to less than £2,000 a month.
@@ -340,7 +357,7 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center rounded-3xl bg-transparent">
+              <div className=" w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center rounded-3xl bg-transparent">
                 <Tilt
                   options={defaultOptions}
                   style={{
@@ -352,22 +369,33 @@ function App() {
                   <img
                     src={image.glassmorphism1}
                     alt=""
-                    className="w-full h-full"
+                    className=" flex justify-center items-center w-full h-full"
                   />
                 </Tilt>
               </div>
             </div>
 
             {/* second one for this guy  */}
-            <div className="flex justify-center items-center h-full w-full gap-7 px-[2%] ">
+            <div className="flex flex-col mybp:flex-row justify-center items-center h-full w-full gap-7 px-[2%] ">
               {/* left section  */}
-              <div className="w-[42.063rem] h-[33rem] block p-12 rounded-3xl bg-transparent">
-                <div className="flex flex-col gap-9 justify-center w-full h-full">
-                  <h1 ref={ref4} className= {`${ref4visible ? 'slide_right' : ''}  font-bold text-[3.25rem]`}>UK based hire</h1>
-                  <p  className={`${ref4visible ? 'slide_in' : ''} font-medium text-2xl w-[21rem]`}>
+              <div className="w-[100%] h-full mybp:h-[33rem] block p-12 rounded-3xl bg-transparent">
+                <div className="flex flex-col gap-9 justify-center items-start w-full h-full">
+                  <h1
+                    ref={ref4}
+                    className={`${
+                      ref4visible ? "slide_right" : ""
+                    }  font-bold text-2xl mybp:text-[3.25rem]`}
+                  >
+                    UK based hire
+                  </h1>
+                  <p
+                    className={`${
+                      ref4visible ? "slide_in" : ""
+                    } font-medium text-xs mybp:text-2xl w-[100%]`}
+                  >
                     Lots of time, money and extra fees involved.
                   </p>
-                  <button className=" w-48 h-14 bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold text-base">
+                  <button className=" p-3 text-xs max-w-48 max-h-14 whitespace-nowrap bg-black flex justify-center items-center text-white hover:bg-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out gap-2 rounded-xl font-bold  mybp:text-base">
                     <span>Access Top Talent</span>
                     <svg
                       width="15"
@@ -385,7 +413,7 @@ function App() {
                 </div>
               </div>
               {/* right section  */}
-              <div className="w-[30rem] h-[33rem] z-30  p-12 flex items-center rounded-3xl bg-transparent">
+              <div className="w-full h-full mybp:w-[30rem] mybp:h-[33rem] z-30 p-3 mybp:p-12 flex items-center justify-center rounded-3xl bg-transparent">
                 <Tilt
                   options={defaultOptions}
                   style={{
@@ -394,107 +422,44 @@ function App() {
                     borderradius: 9999,
                   }}
                 >
-                  <img src={image.glassmorphism2} alt="" />
+                  <img
+                    src={image.glassmorphism2}
+                    alt=""
+                    className="flex justify-center items-center w-full h-full"
+                  />
                 </Tilt>
               </div>
             </div>
             <div className="h-20"></div>
           </div>
 
-          
-
           {/* sixth page  */}
-          <div className="w-full my-10 flex flex-col items-center mt-32 gap-[17rem] min-h-[150vh] ">
-            <h1 className=" w-60 font-bold text-4xl text-center">
+          <div className="w-full h-full my-10 flex flex-col items-center mt-32 gap-[17rem] max-h-[150vh]">
+            <h1 className=" w-60 font-bold text-4xl text-center mb-4">
               Customer testimonial
             </h1>
 
-            <div className="w-full h-[22.95rem] bg-gradient-to-r from-[#F7F7F8] to-[#9597AA] rounded-r-[2.5rem] mr-7 flex justify-center items-center gap-[50.688rem] relative">
-              {/* Previous button  */}
-              <button className=" bg-[#1A1B1E] hover:bg-white text-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
-                <svg
-                  width="21"
-                  height="32"
-                  viewBox="0 0 21 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.5 3L4 16L18.5 29"
-                    stroke="currentColor"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-
-              {/* next button  */}
-              <button className=" bg-[#1A1B1E] hover:bg-white text-white hover:text-black hover:border hover:border-black transition delay-150 duration-150 ease-in-out w-[4.318rem] h-[4.318rem] rounded-full flex justify-center items-center">
-                <svg
-                  width="21"
-                  height="32"
-                  viewBox="0 0 21 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2.49999 3L17 16L2.49999 29"
-                    stroke="currentColor"
-                    stroke-width="5"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-
-              {/* review popup  */}
-              <div className="absolute w-[42.5rem] h-[49.125rem] bg-white rounded-3xl py-10 flex flex-col items-center justify-center ">
-                <div className="w-[36.625rem] h-full flex flex-col gap-9 justify-center">
-                  <div className="flex gap-16 justify-between items-center">
-                    <span className=" font-semibold text-2xl">
-                      Nnaemeka Obodoekwe - CTO Lenkie
-                    </span>
-                    <img src={image.bitmojict} alt="" />
-                  </div>
-                  <p className="w-full font-normal text-lg">
-                    I was initially skeptical when introduced to Tekalent as a
-                    solution to accelerate my product development timeline, but
-                    taking the plunge turned out to be a game-changer. The
-                    top-notch team of engineers I had the pleasure of working
-                    with not only helped me launch my product on time but also
-                    on budget, delivering exceptional results. Their expertise
-                    and efficient processes enabled us to save an impressive
-                    three months of development time, giving us a significant
-                    competitive advantage and allowing us to capture a
-                    substantial market share ahead of schedule. Additionally,
-                    the affordability of Tekalent's engineers, being five times
-                    cheaper compared to the UK, ensured we stayed well within
-                    our budget. The professionalism, attention to detail, and
-                    proactive problem-solving approach of Tekalent's engineers
-                    were instrumental in overcoming challenges and providing
-                    valuable insights for enhancing product quality and
-                    efficiency. I wholeheartedly recommend Tekalent to anyone
-                    seeking to accelerate their product development while
-                    maintaining cost- effectiveness.
-                  </p>
-                  <div className="w-full">
-                    <img src={image.fivestars} alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Review />
           </div>
 
           {/* seventh page  */}
-          <div ref={ref5} className= {`${ref5visible ? 'spin' : ''} w-[85%] h-[36.938rem] bg-[#1A1B1E] text-white flex justify-center items-center rounded-[40px]`}>
+          <div
+            ref={ref5}
+            className={`${
+              ref5visible ? "spin" : ""
+            } mybp:w-[85%] w-[90%] h-[50vh] mybp:h-[36.938rem] bg-[#1A1B1E] text-white rounded-[40px] mt-72 mybp:mt-64 flex relative justify-center p-4 mybp:p-0`}
+          >
             {/* left side  */}
-            <div className=" w-[50%] flex flex-col gap-7 pl-24">
-              <h1 className=" font-bold text-[2.47rem]">Founding members</h1>
-              <p className=" w-[30.25rem] font-normal text-xl">
+            <div className=" h-full w-[100%]  mybp:text-left sm:w-[50%] flex flex-col gap-7 mybp:pl-[5%]  justify-center">
+              <h1 className=" font-bold text-2xl mybp:text-[2.47rem]">
+                Founding members
+              </h1>
+              <p className=" mybp:w-[30.25rem] font-normal text-xs mybp:text-xl">
                 Try our services, and if you're not satisfied with our engineers
                 within the first 3 days, we'll cover the cost - no questions
                 asked.
               </p>
-              <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out text-base font-bold gap-2 rounded-xl">
+              <button className="max-w-[16.188rem] max-h-[3.625rem] p-3 whitespace-nowrap text-xs flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out mybp:text-base font-bold gap-2 rounded-xl">
                 <span>Apply to become a member</span>
                 <svg
                   width="19"
@@ -512,39 +477,46 @@ function App() {
             </div>
 
             {/* right side  */}
-            <div className="w-[50%]">
+            <div className="w-full h-full sm:w-[50%] flex justify-end absolute sm:relative">
               <img
                 src={image.grid7thpageiguess}
                 alt=""
-                className="w-full h-[90%] ml-[5%] mb-[-34%]"
+                className="w-full h-[100%] mybp:ml-[5%] mybp:mb-[-22.5%] "
               />
             </div>
           </div>
 
           <div className="w-full h-[12.375rem]"></div>
           {/* 9th page  */}
-          <div  className="w-full flex justify-center items-center relative ">
-            <div ref={tilt2Ref} className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16 ">
-              <div>
-                <img src={image.bitmojiguy2} alt="" />
-              </div>
-              <div className="flex flex-col gap-5">
-                <h1 className="font-bold text-2xl text-[#1A1B1E]">
-                  “Learn more about me”
-                </h1>
-                <p className=" font-normal text-lg text-[#66666E] w-[34.5rem]">
-                  I'm Ade, a Nigerian working in the tech space in the UK. After
-                  using remote developers for my own project, Loma, and spending
-                  a lot of time vetting engineers alongside various CTOs in the
-                  UK, I was highly impressed by the engineering talent available
-                  from across the world. After being asked by various other
-                  founders to share this list of engineers, I’ve decided to open
-                  up my vetted talent pool
-                </p>
-                <p className="font-bold text-lg text-[#1A1B1E] pt-8">Ade</p>
-                <p className=" font-medium text-lg text-[#66666E]">
-                  CEO & Co-Founder
-                </p>
+          <div className="w-full flex justify-center items-center relative ">
+            <div
+              ref={tilt2Ref}
+              className="w-[80%] h-[80vh] bg-white rounded-3xl z-20 flex justify-center items-center gap-16 "
+            >
+              <div className="flex gap-4">
+                <div className="w-full">
+                  <img src={image.bitmojiguy2} alt="" />
+                </div>
+                <div className="flex flex-col gap-5">
+                  <h1 className="font-bold text-sm mybp:text-2xl text-[#1A1B1E]">
+                    “Learn more about me”
+                  </h1>
+                  <p className=" font-normal text-xs mybp:text-lg text-[#66666E] w-[80%] mybp:w-[34.5rem]">
+                    I'm Ade, a Nigerian working in the tech space in the UK.
+                    After using remote developers for my own project, Loma, and
+                    spending a lot of time vetting engineers alongside various
+                    CTOs in the UK, I was highly impressed by the engineering
+                    talent available from across the world. After being asked by
+                    various other founders to share this list of engineers, I’ve
+                    decided to open up my vetted talent pool
+                  </p>
+                  <p className="font-bold text-sm mybp:text-lg text-[#1A1B1E] pt-8">
+                    Ade
+                  </p>
+                  <p className=" font-medium text-xs mybp:text-lg text-[#66666E]">
+                    CEO & Co-Founder
+                  </p>
+                </div>
               </div>
             </div>
             <div className="absolute w-[50%] h-[90vh] bg-[#1B1C22] rounded-3xl right-[5%] z-10"></div>
@@ -552,18 +524,18 @@ function App() {
 
           <div className="w-full h-[12.375rem]"></div>
           {/* 10th page  */}
-          <div className="w-[90%] h-[100vh] bg-[#1A1B1E] rounded-[84px] flex gap-64 text-white justify-center items-center">
-            <div className="flex justify-between w-[80%]">
+          <div className=" w-full mybp:w-[90%] h-[100%] bg-[#1A1B1E] mybp:rounded-[84px] rounded-t-[84px] flex gap-64 text-white justify-center items-center p-4 pt-8">
+            <div className="flex flex-col justify-center items-center mybp:flex-row mybp:justify-between w-[80%] gap-8">
               {/* first rights  */}
-              <div className=" flex flex-col gap-[90%]">
+              <div className=" flex mybp:flex-col gap-[20%] mybp:gap-[80%]">
                 <h1 className=" font-semibold text-xl">Tekalent</h1>
-                <p className=" w-[9.7rem]">© 2023. All rights reserved</p>
+                <p className="  mybp:w-[9.7rem]">© 2023. All rights reserved</p>
               </div>
 
               {/* sencond sec  */}
               <div className="flex flex-col gap-10">
                 <h1>Contact us</h1>
-                <hr className="h-px my-8 w-80 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                <hr className="h-px my-2 mybp:my-8 w-[90%] bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                 {/* EMAIl  */}
                 <div className="flex items-center">
@@ -588,7 +560,7 @@ function App() {
                   </div>
                 </div>
 
-                <hr className="h-px my-8 w-80 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                <hr className="h-px my-2 mybp:my-8 w-[90%] bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
                 {/* phone  */}
                 <div className="flex items-baseline">
@@ -615,9 +587,11 @@ function App() {
 
               {/* third guy  */}
               <div className="flex flex-col gap-12">
-                <h1 className=" font-bold text-lg">Become a founding member</h1>
-                <div className="flex flex-col gap-32">
-                  <button className="w-[16.188rem] h-[3.625rem] flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out text-base font-bold gap-2 rounded-xl">
+                <h1 className=" font-bold mybp:text-lg text-sm">
+                  Become a founding member
+                </h1>
+                <div className="flex flex-col gap-4 mybp:gap-32">
+                  <button className=" max-w-[16.188rem] max-h-[3.625rem] p-3 whitespace-nowrap flex justify-center items-center bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition delay-150 duration-150 ease-in-out text-xs mybp:text-base font-bold gap-2 rounded-xl">
                     <span>Apply to become a member</span>
                     <svg
                       width="19"
@@ -632,7 +606,7 @@ function App() {
                       />
                     </svg>
                   </button>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 justify-center">
                     {/* Facebook  */}
                     <a href="">
                       <svg
@@ -785,7 +759,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
