@@ -519,11 +519,13 @@ function App() {
           <div className="w-full h-[12.375rem]"></div>
           {/* 10th page  */}
           <div className=" w-full mybp:w-[90%] h-[100%] bg-[#1A1B1E] mybp:rounded-[84px] rounded-t-[84px] flex gap-64 text-white justify-center items-center p-4 pt-8">
-            <div className="flex flex-col justify-center items-center mybp:flex-row mybp:justify-between w-[90%] gap-8">
+            <div className="flex flex-col mybp:flex-row mybp:justify-between w-[90%] gap-8">
               {/* first rights  */}
-              <div className=" hidden mybp:flex mybp:flex-col gap-[20%] mybp:gap-[80%]">
+              <div className=" hidden mybp:flex flex-col items-center gap-[80%]">
                 <h1 className=" font-semibold text-xl">Tekalent</h1>
-                <p className="  mybp:w-[9.7rem]">© 2023. All rights reserved</p>
+                <p className=" text-xs  mybp:w-[9.7rem]">
+                  © 2023. All rights reserved
+                </p>
               </div>
 
               {/* sencond sec  */}
@@ -580,7 +582,7 @@ function App() {
               </div>
 
               {/* media for smaller devices  */}
-              <div className=" mybp:hidden flex justify-between w-full gap-6 pt-4">
+              <div className=" mybp:hidden flex justify-between w-full gap-2 pt-4">
                 {/* first rights  */}
                 <div className=" flex flex-col items-center gap-[80%]">
                   <h1 className=" font-semibold text-xl">Tekalent</h1>
@@ -594,7 +596,7 @@ function App() {
 
                   {/* EMAIl  */}
                   <div className="flex items-center">
-                    <div className="h-full flex items-center gap-3">
+                    <div className="h-full flex items-center text-xs sm:text-base gap-3">
                       <svg
                         width="20"
                         height="16"
@@ -619,7 +621,7 @@ function App() {
 
                   {/* phone  */}
                   <div className="flex items-baseline">
-                    <div className="h-full flex items-center gap-3">
+                    <div className="h-full flex items-center text-xs sm:text-base gap-3">
                       <svg
                         width="22"
                         height="22"
